@@ -176,7 +176,7 @@ export function TaskItem({ task }: TaskItemProps) {
                 <Flag className={cn("w-3 h-3", getPriorityColor(task.priority))} />
               )}
 
-              {task.tags && task.tags.length > 0 && (
+              {Array.isArray(task.tags) && task.tags.length > 0 && (
                 <div className="flex items-center space-x-1">
                   <TagIcon className="h-3 w-3 text-muted-foreground" />
                   <div className="flex space-x-1">
