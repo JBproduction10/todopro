@@ -116,7 +116,7 @@ export function TaskDialog({ task, open, onClose }: TaskDialogProps) {
   const onSubmit = async (data: TaskFormData) => {
     setIsLoading(true)
     try {
-      const categoryValue = data.category_id === "none" ? null : data.category_id
+      const categoryValue = data.category_id === "none" ? undefined : data.category_id
 
       const taskData = {
         title: data.title,
