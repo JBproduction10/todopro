@@ -74,7 +74,6 @@ export function TaskDialog({ task, open, onClose }: TaskDialogProps) {
       title: "",
       description: "",
       priority: 3,
-      tags: task?.tags|| []
     },
   })
 
@@ -85,7 +84,6 @@ export function TaskDialog({ task, open, onClose }: TaskDialogProps) {
         description: task.description || "",
         due_date: task.due_date ? new Date(task.due_date) : undefined,
         category_id: task.category_id || "none",
-        tags: task?.tags || [],
         priority: task.priority,
       })
     } else {
@@ -94,7 +92,6 @@ export function TaskDialog({ task, open, onClose }: TaskDialogProps) {
         description: "",
         priority: 3,
         category_id: "none",
-        tags: [],
       })
     }
   }, [task, form])
@@ -124,7 +121,6 @@ export function TaskDialog({ task, open, onClose }: TaskDialogProps) {
         description: data.description || undefined,
         due_date: data.due_date ? data.due_date.toISOString() : null,
         category_id: categoryValue,
-        tags: data.tags,
         priority: data.priority,
         updated_at: new Date().toISOString(),
       }
@@ -342,7 +338,7 @@ export function TaskDialog({ task, open, onClose }: TaskDialogProps) {
             />
 
             {/* Tags */}
-            <div className='space-y-2'>
+            {/* <div className='space-y-2'>
               <FormLabel>Tags</FormLabel>
               <div className='flex gap-2 flex-wrap'>
                 {form.watch('tags')?.map((tag) => (
@@ -396,7 +392,7 @@ export function TaskDialog({ task, open, onClose }: TaskDialogProps) {
                   </Button>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             <div className="flex justify-end gap-2">
               <Button type="button" variant="outline" onClick={onClose} disabled={isLoading}>

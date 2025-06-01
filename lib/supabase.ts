@@ -13,7 +13,6 @@ export interface Task {
   description?: string
   due_date?: string
   completed: boolean
-  tags: string[] | null
   created_at: string
   updated_at: string
   category_id?: string

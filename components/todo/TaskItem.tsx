@@ -74,7 +74,7 @@ export function TaskItem({ task }: TaskItemProps) {
 
     return { label, variant, isPastDue }
   }
-  console.log('task tags:', task?.tags)
+  // console.log('task tags:', task?.tags)
   const dueDateInfo = getDueDateInfo()
 
   const getPriorityColor = (priority: number) => {
