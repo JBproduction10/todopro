@@ -61,8 +61,7 @@ export function TodoSidebar({ open, onClose }: TodoSidebarProps) {
   ]
 
   const SidebarContent = () => (
-  <div className="flex flex-col h-full">
-    <div className="flex-1 overflow-y-auto space-y-6 p-4">
+    <div className="space-y-6 p-4">
       {/* Filter Options */}
       <div>
         <h3 className="mb-3 text-sm font-medium text-muted-foreground">
@@ -105,7 +104,7 @@ export function TodoSidebar({ open, onClose }: TodoSidebarProps) {
             <Plus className="h-3 w-3" />
           </Button>
         </div>
-        <div className="space-y-1">
+        <div className="space-y-1 max-h-64 overflow-y-auto pr-1 scrollbar-none">
           {categories.map((category) => {
             const taskCount = getTasksByCategory(category.id).length
             return (
@@ -185,9 +184,7 @@ export function TodoSidebar({ open, onClose }: TodoSidebarProps) {
         </div>
       </div>
     </div>
-  </div>
-)
-
+  )
 
   return (
     <>
