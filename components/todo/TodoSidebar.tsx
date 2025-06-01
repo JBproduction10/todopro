@@ -104,7 +104,14 @@ export function TodoSidebar({ open, onClose }: TodoSidebarProps) {
             <Plus className="h-3 w-3" />
           </Button>
         </div>
-        <div className="space-y-1 max-h-64 overflow-y-auto pr-1 scrollbar-none">
+        <div className="space-y-1 max-h-64 overflow-y-auto pr-1"
+          style={{ scrollbarWidth: 'none' }}
+        >
+            <style jsx>{`
+            div::-webkit-scrollbar {
+              display: none;
+            }
+          `}</style>
           {categories.map((category) => {
             const taskCount = getTasksByCategory(category.id).length
             return (
