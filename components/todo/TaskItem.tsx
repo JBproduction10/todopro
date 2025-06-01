@@ -74,7 +74,7 @@ export function TaskItem({ task }: TaskItemProps) {
 
     return { label, variant, isPastDue }
   }
-
+  console.log('task tags:', task?.tags)
   const dueDateInfo = getDueDateInfo()
 
   const getPriorityColor = (priority: number) => {
@@ -176,15 +176,18 @@ export function TaskItem({ task }: TaskItemProps) {
                 <Flag className={cn("w-3 h-3", getPriorityColor(task.priority))} />
               )}
 
-              {Array.isArray(task.tags) && task.tags.length > 0 ? (
-                <div className="flex gap-1 flex-wrap">
-                  {task.tags.map((tag) => (
-                    <Badge key={tag} variant="secondary" className="text-xs">
-                      {tag}
-                    </Badge>
-                  ))}
+              {/* {task.tags && task.tags.length > 0 && (
+                <div className="flex items-center space-x-1">
+                  <TagIcon className="h-3 w-3 text-muted-foreground" />
+                  <div className="flex space-x-1">
+                    {task.tags.map((tag) => (
+                      <Badge key={tag} variant="secondary" className="text-xs">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
                 </div>
-              ) : null}
+              )} */}
             </div>
           </div>
         </div>
