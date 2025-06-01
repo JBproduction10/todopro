@@ -104,7 +104,7 @@ export function TodoSidebar({ open, onClose }: TodoSidebarProps) {
             <Plus className="h-3 w-3" />
           </Button>
         </div>
-        <div className="space-y-1 max-h-64 overflow-y-auto pr-1">
+        <div className="space-y-1">
           {categories.map((category) => {
             const taskCount = getTasksByCategory(category.id).length
             return (
@@ -127,7 +127,9 @@ export function TodoSidebar({ open, onClose }: TodoSidebarProps) {
                   />
                   <span className="truncate">{category.name}</span>
                 </div>
-                <Badge variant="outline">{taskCount}</Badge>
+                <Badge variant="outline">
+                  {taskCount}
+                </Badge>
               </Button>
             )
           })}
