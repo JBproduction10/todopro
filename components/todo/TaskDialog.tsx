@@ -74,6 +74,7 @@ export function TaskDialog({ task, open, onClose }: TaskDialogProps) {
       title: "",
       description: "",
       priority: 3,
+      tags: []
     },
   })
 
