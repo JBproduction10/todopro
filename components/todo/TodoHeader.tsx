@@ -65,7 +65,7 @@ export function TodoHeader({ user, onMenuClick }: TodoHeaderProps) {
       user_id: user.id,
       title: '',
       description: '',
-      tag: [],
+      tags: [],
       completed: false,
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
