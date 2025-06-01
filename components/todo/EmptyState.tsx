@@ -31,6 +31,7 @@ export function EmptyState({
       user_id: '',
       title: '',
       description: '',
+      tags: [],
       completed: false,
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
