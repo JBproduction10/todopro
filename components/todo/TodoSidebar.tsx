@@ -104,7 +104,7 @@ export function TodoSidebar({ open, onClose }: TodoSidebarProps) {
             <Plus className="h-3 w-3" />
           </Button>
         </div>
-        <div className="space-y-1">
+        <div className="space-y-1 overflow-y-auto">
           {categories.map((category) => {
             const taskCount = getTasksByCategory(category.id).length
             return (
