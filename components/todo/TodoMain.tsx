@@ -90,7 +90,7 @@ export function TodoMain() {
             selectedCategory={selectedCategory}
           />
         ) : (
-          <TaskList tasks={filteredTasks} />
+          <TaskList/>
         )}
       </div>
     </main>
