@@ -1,26 +1,24 @@
-"use client"
+'use client'
 
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd'
-import type { Task } from '@/lib/supabase'
 import { TaskItem } from './TaskItem'
 import { useTodoStore } from '@/lib/stores/todoStore'
 
-interface TaskListProps {
-  tasks: Task[]
-}
-
-export function TaskList({ tasks }: TaskListProps) {
-  const { updateTask } = useTodoStore()
+export function TaskList() {
+  const { tasks, setTasks, updateTask } = useTodoStore()
 
   const handleDragEnd = (result: any) => {
     if (!result.destination) return
 
-    const items = Array.from(tasks)
-    const [reorderedItem] = items.splice(result.source.index, 1)
-    items.splice(result.destination.index, 0, reorderedItem)
+    const reorderedTasks = Array.from(tasks)
+    const [movedTask] = reorderedTasks.splice(result.source.index, 1)
+    reorderedTasks.splice(result.destination.index, 0, movedTask)
 
-    // Update order indices
-    items.forEach((task, index) => {
+    // Update global state
+    setTasks(reorderedTasks)
+
+    // Persist updated order_index in Supabase
+    reorderedTasks.forEach((task, index) => {
       if (task.order_index !== index) {
         updateTask(task.id, { order_index: index })
       }
