@@ -29,7 +29,6 @@ const nextConfig: NextConfig = {
 
 export default nextConfig;
 
-// next.config.js
 const withPWA = require('next-pwa')({
   dest: 'public',
   register: true,
